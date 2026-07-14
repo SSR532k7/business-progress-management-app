@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workflow · Business Progress Management</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <h2>Business Progress Management</h2>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="builder.html" id="nav-builder">New workflow</a>
+      <a href="#" id="logout-link">Log out</a>
+    </nav>
+    <div class="user-tag" id="user-tag"></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 id="workflow-title">Workflow</h1>
+    </div>
+
+    <!-- Step progress trail, e.g. Step 1 (done) -> Step 2 (active) -> Step 3 (pending) -->
+    <div class="card" id="step-trail">
+      <!-- injected by JS -->
+    </div>
+
+    <!-- Current step detail: editable if this user is the assignee, read-only otherwise -->
+    <div class="card" id="current-step-card">
+      <div class="card-title-row">
+        <h3 id="current-step-label">Current step</h3>
+        <span class="badge badge-progress" id="current-step-badge">In progress</span>
+      </div>
+      <p class="card-meta" id="current-step-assignee"></p>
+
+      <div class="field" style="margin-top:16px;">
+        <label for="step-data">Information</label>
+        <textarea id="step-data" rows="6"></textarea>
+      </div>
+
+      <div id="step-actions" style="display:flex; gap:8px;">
+        <button class="btn btn-primary" id="send-next-btn">Send to next step</button>
+        <button class="btn btn-secondary" id="keep-same-btn">Leave as-is &amp; send</button>
+      </div>
+
+      <p class="empty-state" id="readonly-note" style="display:none;">
+        This step belongs to someone else. You can view it but not edit it.
+      </p>
+    </div>
+  </main>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/workflow.js"></script>
+</body>
+</html>

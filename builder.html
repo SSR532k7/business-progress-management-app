@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New workflow · Business Progress Management</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <h2>Business Progress Management</h2>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="builder.html" class="active">New workflow</a>
+      <a href="#" id="logout-link">Log out</a>
+    </nav>
+    <div class="user-tag" id="user-tag"></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Create workflow</h1>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label for="workflow-title">Workflow title</label>
+        <input type="text" id="workflow-title" placeholder="e.g. New client onboarding">
+      </div>
+
+      <div class="field">
+        <label for="workflow-desc">Starting information (optional)</label>
+        <textarea id="workflow-desc" placeholder="Any initial data the first assignee should see"></textarea>
+      </div>
+
+      <label style="font-size:13px; font-weight:600; display:block; margin-bottom:8px;">Steps</label>
+
+      <div id="steps-list">
+        <!-- step rows injected here by JS, one per step:
+        <div class="step-row" data-step-index="0">
+          <span class="step-index">1</span>
+          <select class="step-assignee"><option>-- choose person/group --</option></select>
+          <div class="step-actions">
+            <button class="btn btn-secondary btn-icon" data-action="move-up">↑</button>
+            <button class="btn btn-secondary btn-icon" data-action="move-down">↓</button>
+            <button class="btn btn-danger btn-icon" data-action="remove">✕</button>
+          </div>
+        </div>
+        -->
+        <div class="empty-state" id="steps-empty">No steps yet. Add the first one below.</div>
+      </div>
+
+      <button class="btn btn-secondary" id="add-step-btn" type="button">+ Add step</button>
+
+      <div style="margin-top:24px; display:flex; gap:8px;">
+        <button class="btn btn-primary" id="save-workflow-btn" type="button">Save workflow</button>
+        <a href="dashboard.html" class="btn btn-secondary">Cancel</a>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/builder.js"></script>
+</body>
+</html>
